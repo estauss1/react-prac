@@ -4,15 +4,34 @@ export default function GeneralSection({generalInfo, onGenInfoChange}){
     function onNameSecChange(newName){
         onGenInfoChange({
             ...generalInfo,
+            contact:{
+                ...generalInfo.contact
+            },
             name: newName
         })
     }
 
+    function onContactSecChange(newContact){
+        onGenInfoChange({
+            ...generalInfo,
+            name:{
+                ...generalInfo.name
+            },
+            contact: newContact
+        })
+    }
+
     return(
-    <NameSubSection 
-        name={generalInfo.name}
-        onNameSecChange={onNameSecChange}
-    />
+    <div>
+        <NameSubSection 
+            name={generalInfo.name}
+            onNameSecChange={onNameSecChange}
+        />
+        <ContactSubSection 
+            contact={generalInfo.contact}
+            onContactSecChange={onContactSecChange}
+        />
+    </div>
     );
 }
 
@@ -58,6 +77,43 @@ function NameSubSection({name, onNameSecChange}){
             value={name.lastName}
         />
     </div>
+    );
+}
+
+function ContactSubSection({contact, onContactSecChange}){
+
+    function onContactChange(e, identifier){
+        const newContact = {
+            ...contact
+        }
+        switch(identifier){
+        case "email":
+            newContact.email = e.target.value
+            break;
+        case "phoneNumber":
+            newContact.phoneNumber = e.target.value
+            break;
+        default:
+            console.log("identifier not recognized inside onContactChange");
+        }
+        onContactSecChange(newContact)
+    }
+
+    return(
+        <div>
+            <Field 
+                identifier={"email"}
+                label={"email: "}
+                onValChange={onContactChange}
+                value={contact.email}
+            />
+            <Field 
+                identifier={"phoneNumber"}
+                label={"phone number: "}
+                onValChange={onContactChange}
+                value={contact.phoneNumber}
+            />
+        </div>
     );
 }
 

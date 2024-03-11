@@ -9,8 +9,10 @@ function App() {
       middleName:'',
       lastName:''
     },
-    email:'',
-    phoneNumber:''
+    contact:{
+      email:'',
+      phoneNumber:''
+    }
   });
 
   function onGenInfoChange(updatedGenInfo){
