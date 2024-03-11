@@ -17,59 +17,58 @@ export default function GeneralSection({generalInfo, onGenInfoChange}){
 }
 
 function NameSubSection({name, onNameSecChange}){
-
-    function onFirstNameChange(e){
-        const newFirst = e.target.value
-        onNameSecChange({
-            ...name,
-            firstName: newFirst
-        })
+    function onNameChange(e, identifier){
+        const newName = {
+            ...name
+        }
+        switch(identifier){
+        case "firstChild":
+            newName.firstName = e.target.value
+            break;
+        case "middleChild":
+            newName.middleName = e.target.value
+            break;
+        case "lastChild":
+            newName.lastName = e.target.value
+            break;
+        default:
+            console.log("identifer passed to onNameChange not recognized");
+        }
+        onNameSecChange(newName);
     }
 
-    function onMiddleNameChange(e){
-        const newMiddle = e.target.value
-        onNameSecChange({
-            ...name,
-            middleName: newMiddle
-        })
-    }
-
-    function onLastNameChange(e){
-        const newLast = e.target.value
-        onNameSecChange({
-            ...name,
-            lastName: newLast
-        })
-    }
     return(
     <div>
         <Field 
+            identifier={"firstChild"}
             label={"first name: "}
-            onChange={onFirstNameChange}
+            onValChange={onNameChange}
             value={name.firstName}
         />    
         <Field 
+            identifier={"middleChild"}
             label={"middle name: "}
-            onChange={onMiddleNameChange}
+            onValChange={onNameChange}
             value={name.middleName}
         />
         <Field 
+            identifier={"lastChild"}
             label={"last name: "}
-            onChange={onLastNameChange}
+            onValChange={onNameChange}
             value={name.lastName}
         />
     </div>
     );
 }
 
-function Field({label, onChange, value}){
+function Field({identifier, label, onValChange, value}){
     return(
     <div>
         <span>{label}</span>
         <input 
             type="text"
             value={value}
-            onChange={onChange}
+            onChange={(e) => onValChange(e, identifier)}
         />
     </div>
     );
