@@ -1,5 +1,5 @@
 
-export default function GeneralSection({generalInfo, onGenInfoChange}){
+export function GeneralSection({generalInfo, onGenInfoChange}){
 
     function onNameSecChange(newName){
         onGenInfoChange({
@@ -22,7 +22,8 @@ export default function GeneralSection({generalInfo, onGenInfoChange}){
     }
 
     return(
-    <div>
+    <div className="section">
+        <h2>General</h2>
         <NameSubSection 
             name={generalInfo.name}
             onNameSecChange={onNameSecChange}
@@ -117,7 +118,7 @@ function ContactSubSection({contact, onContactSecChange}){
     );
 }
 
-function Field({identifier, label, onValChange, value}){
+export function Field({identifier, label, onValChange, value}){
     return(
     <div>
         <span>{label}</span>
