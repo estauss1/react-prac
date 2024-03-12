@@ -1,5 +1,5 @@
 
-export function GeneralSection({generalInfo, onGenInfoChange}){
+export function GeneralSection({editing, generalInfo, onGenInfoChange, onEditGenChange}){
 
     function onNameSecChange(newName){
         onGenInfoChange({
@@ -23,15 +23,24 @@ export function GeneralSection({generalInfo, onGenInfoChange}){
 
     return(
     <div className="section">
-        <h2>General</h2>
-        <NameSubSection 
-            name={generalInfo.name}
-            onNameSecChange={onNameSecChange}
-        />
-        <ContactSubSection 
-            contact={generalInfo.contact}
-            onContactSecChange={onContactSecChange}
-        />
+        <h2>General Info</h2>
+        <button
+            onClick={() => onEditGenChange(!editing)}
+        >
+            {editing ? "Submit" : "Edit"}
+        </button>
+        {editing &&
+        <>
+            <NameSubSection 
+                name={generalInfo.name}
+                onNameSecChange={onNameSecChange}
+            />
+            <ContactSubSection 
+                contact={generalInfo.contact}
+                onContactSecChange={onContactSecChange}
+            />
+        </>
+        }
     </div>
     );
 }

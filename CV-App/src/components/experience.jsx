@@ -1,7 +1,11 @@
 import { Field } from "./general";
 
-export default function ExperienceSection({experience, onExperienceChange}){
-
+export default function ExperienceSection({
+    editing, 
+    experience, 
+    onExperienceChange, 
+    onEditExpChange
+}){
     function onExpSecChanged(e, identifer){
         const newExperience = {
             ...experience
@@ -33,36 +37,45 @@ export default function ExperienceSection({experience, onExperienceChange}){
     return(
     <div className="section">
         <h2>Job Experience</h2>
-        <Field 
-            identifier={"company"}
-            label={"Company name: "}
-            onValChange={onExpSecChanged}
-            value={experience.company}
-        />
-        <Field 
-            identifier={"position"}
-            label={"Job title: "}
-            onValChange={onExpSecChanged}
-            value={experience.position}
-        />
-        <Field 
-            identifier={"responsibility"}
-            label={"Responsibilities: "}
-            onValChange={onExpSecChanged}
-            value={experience.responsibility}
-        />
-        <Field 
-            identifier={"dateStart"}
-            label={"Started job date: "}
-            onValChange={onExpSecChanged}
-            value={experience.date.start}
-        />
-        <Field 
-            identifier={"dateEnd"}
-            label={"Stopped job date : "}
-            onValChange={onExpSecChanged}
-            value={experience.date.end}
-        />
+        <button
+            onClick={() => onEditExpChange(!editing)}
+        >
+            {editing ? "Submit" : "Edit"}
+        </button>
+        {editing &&
+        <>
+            <Field 
+                identifier={"company"}
+                label={"Company name: "}
+                onValChange={onExpSecChanged}
+                value={experience.company}
+            />
+            <Field 
+                identifier={"position"}
+                label={"Job title: "}
+                onValChange={onExpSecChanged}
+                value={experience.position}
+            />
+            <Field 
+                identifier={"responsibility"}
+                label={"Responsibilities: "}
+                onValChange={onExpSecChanged}
+                value={experience.responsibility}
+            />
+            <Field 
+                identifier={"dateStart"}
+                label={"Started job date: "}
+                onValChange={onExpSecChanged}
+                value={experience.date.start}
+            />
+            <Field 
+                identifier={"dateEnd"}
+                label={"Stopped job date : "}
+                onValChange={onExpSecChanged}
+                value={experience.date.end}
+            />
+        </>
+        }
     </div>
     );
 }

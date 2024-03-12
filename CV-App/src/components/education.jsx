@@ -1,6 +1,11 @@
 import { Field } from "./general";
 
-export default function EducationSection(education, onEducationChange){
+export default function EducationSection({
+    editing, 
+    education, 
+    onEducationChange, 
+    onEditEduChange
+}){
    function onEduSecChange(e, identifier){
         const newEducation = {
             ...education
@@ -26,24 +31,33 @@ export default function EducationSection(education, onEducationChange){
    return(
     <div className="section">
         <h2>Education</h2>
-        <Field 
-            identifier={"schoolName"}
-            label={"Name of school: "}
-            onValChange={onEduSecChange}
-            value={education.schoolName}
-        />
-        <Field 
-            identifier={"studyTitle"}
-            label={"Title of Study: "}
-            onValChange={onEduSecChange}
-            value={education.studyTitle}
-        />
-        <Field 
-            identifier={"studyDate"}
-            label={"Date of study: "}
-            onValChange={onEduSecChange}
-            value={education.studyDate}
-        />
+        <button 
+            onClick={() => onEditEduChange(!editing)}
+        >
+            {editing ? "Submit" : "Edit"}
+        </button>
+        {editing &&
+        <>
+            <Field 
+                identifier={"schoolName"}
+                label={"Name of school: "}
+                onValChange={onEduSecChange}
+                value={education.schoolName}
+            />
+            <Field 
+                identifier={"studyTitle"}
+                label={"Title of Study: "}
+                onValChange={onEduSecChange}
+                value={education.studyTitle}
+            />
+            <Field 
+                identifier={"studyDate"}
+                label={"Date of study: "}
+                onValChange={onEduSecChange}
+                value={education.studyDate}
+            />
+        </>
+        }
     </div>
    );
 }
