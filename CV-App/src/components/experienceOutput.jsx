@@ -1,7 +1,7 @@
 
 export default function ExperienceOutput({editing, experience }){
     return(
-        <div>
+        <div className="outputSection">
             {!editing && 
             <>
                 <h2>Job Experience</h2>

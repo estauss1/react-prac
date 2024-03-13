@@ -90,6 +90,7 @@ function App() {
         />
       </div>
       <div className="outputSide">
+        <h1 className="outputTitle">Output</h1>
         <GeneralOuput 
           editing={editingGeneral}
           generalInfo={generalInfo}

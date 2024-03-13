@@ -22,7 +22,7 @@ export function GeneralSection({editing, generalInfo, onGenInfoChange, onEditGen
     }
 
     return(
-    <div className="inputSection">
+    <div className="inputSection genSection">
         <div className="inputSectionHeader">
             <h2>General Info</h2>
             <button

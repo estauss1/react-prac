@@ -1,14 +1,37 @@
+body{
+    overflow: hidden;
+    background-color: #282828;
+}
+
 .page{
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-color: gray;
+    background-color: #282828;
     justify-content: center;
 }
 
 .pageColumn{
-    background-color: darkcyan;
-    min-width: 60%;
+    background-color: #3c3836;
+    min-width: 80%;
+    height: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h1, h2, h4, p, span, ul, li{
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fbf1c7;
+}
+
+h1, h2, h4{
+    text-decoration: underline;
+}
+
+p, span, li{
+    font-size: 16px;
 }

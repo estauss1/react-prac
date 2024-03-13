@@ -12,11 +12,9 @@ export default function GeneralOuput({editing, generalInfo}){
                     + generalInfo.name.lastName + "."
                     }
                 </p>
-                <h3>Contact Information</h3>
-                <ul>
-                    <li>email: {generalInfo.contact.email}</li>
-                    <li>phone number: {generalInfo.contact.phoneNumber}</li>
-                </ul>
+                <h4>Contact Information</h4>
+                <p>email: {generalInfo.contact.email}</p>
+                <p>phone number: {generalInfo.contact.phoneNumber}</p>
             </>   
             }
         </div>

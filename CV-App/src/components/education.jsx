@@ -29,7 +29,7 @@ export default function EducationSection({
    }
 
    return(
-    <div className="inputSection">
+    <div className="inputSection eduSection">
         <div className="inputSectionHeader">
             <h2>Education</h2>
             <button 

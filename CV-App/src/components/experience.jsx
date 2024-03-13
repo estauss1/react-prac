@@ -35,7 +35,7 @@ export default function ExperienceSection({
     }
 
     return(
-    <div className="inputSection">
+    <div className="inputSection expSection">
         <div className="inputSectionHeader">
             <h2>Job Experience</h2>
             <button

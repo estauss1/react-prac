@@ -1,28 +1,40 @@
 .inputSide{
-   margin: 5%;
    display: flex; 
    flex-direction: column;
    gap: 2%;
    box-sizing: border-box;
    width: 40%;
-   border: 3px solid yellow;
+   height: 85%;
    justify-content: space-evenly;
+   margin-left: 3%;
 }
 
 .field{
     display: flex;
     flex-direction: row;
     margin: 1%;
-    gap: 10%
+    justify-content: space-between;
 }
 
 .inputSection{
-    border: 2px solid black;
+    border: 5px solid; 
     margin: 2%;
     padding: 3%;
     display: flex;
     flex-direction: column;
     height: 33%;
+}
+
+.genSection{
+    border-color: #98971e;
+}
+
+.expSection{
+    border-color: #83a598;
+}
+
+.eduSection{
+    border-color: #fabd2f;
 }
 
 .inputSectionHeader{
@@ -37,10 +49,17 @@ span{
 }
 
 input{
+    width: 60%;
     justify-self: flex-end;
 }
 
 button{
-    width: 20%;
-    height: 40%
+    width: 25%;
+    height: 100%;
+    font-weight: bold;
+    background-color: #fbf1c7;
+}
+
+button:hover{
+    background-color: gray;
 }
