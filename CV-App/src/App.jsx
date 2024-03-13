@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { GeneralSection } from './components/general';
 import EducationSection from './components/education'
 import ExperienceSection from './components/experience';
+import GeneralOuput from './components/generalOutput';
+import EducationOuput from './components/educationOutput';
+import ExperienceOutput from './components/experienceOutput';
 import './App.css'
 
 function App() {
@@ -62,7 +65,8 @@ function App() {
   }
 
   return (
-    <div>
+  <div>
+    <div className='inputSide'>
       <GeneralSection 
         editing={editingGeneral}
         generalInfo={generalInfo}
@@ -82,6 +86,21 @@ function App() {
         onEditExpChange={onEditExpChange}
       />
     </div>
+    <div className="outputSide">
+      <GeneralOuput 
+        editing={editingGeneral}
+        generalInfo={generalInfo}
+      />
+      <EducationOuput 
+        editing={editingEducation}
+        education={education}
+      />
+      <ExperienceOutput
+        editing={editingExperience}
+        experience={experience}
+      />
+    </div>
+  </div>
   )
 }
 
