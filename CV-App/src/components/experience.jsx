@@ -35,13 +35,15 @@ export default function ExperienceSection({
     }
 
     return(
-    <div className="section">
-        <h2>Job Experience</h2>
-        <button
-            onClick={() => onEditExpChange(!editing)}
-        >
-            {editing ? "Submit" : "Edit"}
-        </button>
+    <div className="inputSection">
+        <div className="inputSectionHeader">
+            <h2>Job Experience</h2>
+            <button
+                onClick={() => onEditExpChange(!editing)}
+            >
+                {editing ? "Submit" : "Edit"}
+            </button>
+        </div>
         {editing &&
         <>
             <Field 

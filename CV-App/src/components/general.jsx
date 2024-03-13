@@ -22,13 +22,15 @@ export function GeneralSection({editing, generalInfo, onGenInfoChange, onEditGen
     }
 
     return(
-    <div className="section">
-        <h2>General Info</h2>
-        <button
-            onClick={() => onEditGenChange(!editing)}
-        >
-            {editing ? "Submit" : "Edit"}
-        </button>
+    <div className="inputSection">
+        <div className="inputSectionHeader">
+            <h2>General Info</h2>
+            <button
+                onClick={() => onEditGenChange(!editing)}
+            >
+                {editing ? "Submit" : "Edit"}
+            </button>
+        </div>
         {editing &&
         <>
             <NameSubSection 
@@ -129,8 +131,8 @@ function ContactSubSection({contact, onContactSecChange}){
 
 export function Field({identifier, label, onValChange, value}){
     return(
-    <div>
-        <span>{label}</span>
+    <div className="field">
+        <span className="fieldLabel">{label}</span>
         <input 
             type="text"
             value={value}

@@ -29,13 +29,15 @@ export default function EducationSection({
    }
 
    return(
-    <div className="section">
-        <h2>Education</h2>
-        <button 
-            onClick={() => onEditEduChange(!editing)}
-        >
-            {editing ? "Submit" : "Edit"}
-        </button>
+    <div className="inputSection">
+        <div className="inputSectionHeader">
+            <h2>Education</h2>
+            <button 
+                onClick={() => onEditEduChange(!editing)}
+            >
+                {editing ? "Submit" : "Edit"}
+            </button>
+        </div>
         {editing &&
         <>
             <Field 

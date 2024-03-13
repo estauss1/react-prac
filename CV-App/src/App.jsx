@@ -5,7 +5,9 @@ import ExperienceSection from './components/experience';
 import GeneralOuput from './components/generalOutput';
 import EducationOuput from './components/educationOutput';
 import ExperienceOutput from './components/experienceOutput';
-import './App.css'
+import './styles/other.css'
+import './styles/inputSide.css'
+import './styles/outputSide.css'
 
 function App() {
   const [editingGeneral, setEditingGeneral] = useState(true);
@@ -65,40 +67,42 @@ function App() {
   }
 
   return (
-  <div>
-    <div className='inputSide'>
-      <GeneralSection 
-        editing={editingGeneral}
-        generalInfo={generalInfo}
-        onGenInfoChange={onGenInfoChange}
-        onEditGenChange={onEditGenChange}
-      />
-      <EducationSection 
-        editing={editingEducation}
-        education={education}
-        onEducationChange={onEducationChange}
-        onEditEduChange={onEditEduChange}
-      />
-      <ExperienceSection 
-        editing={editingExperience}
-        experience={experience}
-        onExperienceChange={onExperienceChange}
-        onEditExpChange={onEditExpChange}
-      />
-    </div>
-    <div className="outputSide">
-      <GeneralOuput 
-        editing={editingGeneral}
-        generalInfo={generalInfo}
-      />
-      <EducationOuput 
-        editing={editingEducation}
-        education={education}
-      />
-      <ExperienceOutput
-        editing={editingExperience}
-        experience={experience}
-      />
+  <div className="page">
+    <div className="pageColumn">
+      <div className='inputSide'>
+        <GeneralSection 
+          editing={editingGeneral}
+          generalInfo={generalInfo}
+          onGenInfoChange={onGenInfoChange}
+          onEditGenChange={onEditGenChange}
+        />
+        <EducationSection 
+          editing={editingEducation}
+          education={education}
+          onEducationChange={onEducationChange}
+          onEditEduChange={onEditEduChange}
+        />
+        <ExperienceSection 
+          editing={editingExperience}
+          experience={experience}
+          onExperienceChange={onExperienceChange}
+          onEditExpChange={onEditExpChange}
+        />
+      </div>
+      <div className="outputSide">
+        <GeneralOuput 
+          editing={editingGeneral}
+          generalInfo={generalInfo}
+        />
+        <EducationOuput 
+          editing={editingEducation}
+          education={education}
+        />
+        <ExperienceOutput
+          editing={editingExperience}
+          experience={experience}
+        />
+      </div>
     </div>
   </div>
   )

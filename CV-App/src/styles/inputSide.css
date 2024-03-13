@@ -1,0 +1,46 @@
+.inputSide{
+   margin: 5%;
+   display: flex; 
+   flex-direction: column;
+   gap: 2%;
+   box-sizing: border-box;
+   width: 40%;
+   border: 3px solid yellow;
+   justify-content: space-evenly;
+}
+
+.field{
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+    gap: 10%
+}
+
+.inputSection{
+    border: 2px solid black;
+    margin: 2%;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    height: 33%;
+}
+
+.inputSectionHeader{
+   display: flex; 
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
+}
+
+span{
+    white-space: nowrap;
+}
+
+input{
+    justify-self: flex-end;
+}
+
+button{
+    width: 20%;
+    height: 40%
+}
