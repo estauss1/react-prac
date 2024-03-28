@@ -11,7 +11,24 @@ function App() {
 
   useEffect(() => {
     const P = new Pokedex()
+    console.log("useeffect ran\n")
 
+    pokemon.forEach((aPokemon) => {
+      P.getPokemonByName(aPokemon.name).then((response) => {
+        let updatedPokemon = {...aPokemon}
+        updatedPokemon.sprite = response.sprites.front_default
+        
+        setPokemon(pokemon => {
+          return pokemon.map((aPoke) => {
+            if(aPoke.name == updatedPokemon.name)
+              return updatedPokemon
+            else 
+              return aPoke
+          })
+        })
+      })
+    })
+    /*
     const newPokemon = pokemon.map((aPokemon) =>{
       let newOne = {...aPokemon}
       P.getPokemonByName(aPokemon.name).then((response) => {
@@ -20,6 +37,7 @@ function App() {
       return newOne
     })
     setPokemon(newPokemon)
+    */
   }, [])
 
   function HandleCardClick(pokeClickedName){
@@ -27,6 +45,7 @@ function App() {
       //add to picked
       let newPokemonPicked = [...pokemonPicked]
       newPokemonPicked.push(pokeClickedName)
+      setPokemonPicked(newPokemonPicked)
       
       setCurrentScore(currentScore + 1)
     } else{ //duplicate chosen gameover
