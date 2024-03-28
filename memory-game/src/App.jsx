@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import {Pokedex} from 'pokeapi-js-wrapper'
 import PokeCard from './components/card'
 import pokemonData from './pokemonData'
+import './styles/stylesheet.css'
 
 function App() {
   const [pokemon, setPokemon] = useState(pokemonData)
@@ -15,6 +16,7 @@ function App() {
 
     pokemon.forEach((aPokemon) => {
       P.getPokemonByName(aPokemon.name).then((response) => {
+        console.log(response)
         let updatedPokemon = {...aPokemon}
         updatedPokemon.sprite = response.sprites.front_default
         
@@ -28,16 +30,6 @@ function App() {
         })
       })
     })
-    /*
-    const newPokemon = pokemon.map((aPokemon) =>{
-      let newOne = {...aPokemon}
-      P.getPokemonByName(aPokemon.name).then((response) => {
-        newOne.sprite = response.sprites.front_default
-      })
-      return newOne
-    })
-    setPokemon(newPokemon)
-    */
   }, [])
 
   function HandleCardClick(pokeClickedName){
@@ -72,12 +64,18 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Pokemon Memory Game</h1>
-      <p>Do not select a pokemon more than once.</p>
-      <p>Current score: {currentScore}</p>
-      <p>High score: {highscore}</p>
-      <div>
+    <div className='app'>
+      <div className='topBar'>
+        <div className='titleSection'>
+          <h1>Pokemon Memory Game</h1>
+          <p>Do not select a pokemon more than once.</p>
+        </div>
+        <div className='scoreSection'>
+          <h2>Current score: {currentScore}</h2>
+          <h2>High score: {highscore}</h2>
+        </div>
+      </div>
+      <div className='cardsContainer'>
         {pokemon.map((aPokemon) => {
           return <PokeCard key={aPokemon.name} aPokemon={aPokemon} HandleCardClick={HandleCardClick}/>
         })}

@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 export default function PokeCard({aPokemon, HandleCardClick}){
     return(
-        <div onClick={() => HandleCardClick(aPokemon.name)}>
+        <div className={'card ' + aPokemon.type} onClick={() => HandleCardClick(aPokemon.name)}>
             {aPokemon.sprite != '' &&
-                 <img src={aPokemon.sprite} alt={aPokemon.name} />
+                 <img className='cardImg' src={aPokemon.sprite} alt={aPokemon.name} />
             }
-            <h2>{aPokemon.name}</h2>
+            <h2 className="cardTitle">{aPokemon.name}</h2>
         </div>
     );
 }
